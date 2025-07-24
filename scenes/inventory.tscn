@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bscsmrybp3dkm"]
+
+[ext_resource type="Script" uid="uid://4m7v6fb3aods" path="res://scenes/inventory.gd" id="1_hj2ta"]
+[ext_resource type="Texture2D" uid="uid://cde2csovo2jd6" path="res://assets/ui/PNG/Double/banner_modern.png" id="2_ty45s"]
+[ext_resource type="Script" uid="uid://c0au7j4lh4pj3" path="res://scenes/grid_container.gd" id="3_uae8j"]
+
+[node name="inventory" type="Node2D"]
+script = ExtResource("1_hj2ta")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 505.0
+offset_bottom = 515.0
+color = Color(0, 0, 0, 0.67451)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(257, 47)
+texture = ExtResource("2_ty45s")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -72.0
+offset_right = -256.0
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "Inventory"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 48.0
+offset_top = 96.0
+offset_right = 464.0
+offset_bottom = 512.0
+size_flags_horizontal = 4
+columns = 3
+script = ExtResource("3_uae8j")

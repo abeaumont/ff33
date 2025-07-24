@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg7rg1ugiqtgg"]
+[gd_scene load_steps=3 format=3 uid="uid://dg7rg1ugiqtgg"]
 
 [ext_resource type="Texture2D" uid="uid://bnusdvnqlh4qn" path="res://assets/objects/Colored/genericItem_color_022.png" id="1_d01uh"]
+[ext_resource type="Script" uid="uid://bmx2mma7llywk" path="res://scenes/shovel.gd" id="2_081d1"]
 
-[node name="Node2D" type="Sprite2D"]
+[node name="object" type="Sprite2D"]
 texture = ExtResource("1_d01uh")
+script = ExtResource("2_081d1")
