@@ -11,5 +11,11 @@ config_version=5
 [application]
 
 config/name="ff33"
+run/main_scene="uid://q0qk3a87pu5t"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1536
+window/size/viewport_height=1024
