@@ -47,18 +47,18 @@ theme_override_constants/separation = 8
 [node name="Action1" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "acción 1"
+text = "ver"
 alignment = 0
 
 [node name="Action2" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "acción 2"
+text = "guardar"
 alignment = 0
 
 [node name="Action3" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "acción 3
+text = "usar con
 "
 alignment = 0
