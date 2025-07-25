@@ -12,6 +12,6 @@ func _ready():
 #	objects = [$shovel]
 #	
 
-func _on_open_actions_menu(item: Node) -> void:
-	$ActionsMenu.show()
+func _on_open_actions_menu(item) -> void:
+	$ActionsMenu.show_menu(item)
 	print(item)
