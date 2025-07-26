@@ -6,8 +6,8 @@ Features:
 - Objectos con acciones contextuales, dependiendo del tipo de objeto y el estado.
 - Inventario de objetos.
 - Interacción entre objetos.
-- Splashscreen.
 - Sonido.
+- Pantalla de intro.
 - Final con felicitación personal de Imo.
 
 El juego es fully AI free, tanto en la generación de código, textos, assets, etc.
