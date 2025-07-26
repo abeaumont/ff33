@@ -29,6 +29,18 @@ func _on_save_item_clicked(resource_name: String) -> void:
 		if child is Itemm and child.get_resource_name() == resource_name:
 			remove_child(child)
 			break
+	
+func _on_item_picked(item) -> void:
+	match state:
+		START:
+			if item == $Bone:
+				state = BONE_PICKED
+			else:
+				print("Unknown item picked on state START")
+		BONE_PICKED:
+			print("Unknown item picked on state BONE_PICKED")
+		END:
+			print("Unknown item picked on state END")
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.pressed and event.keycode == KEY_I:

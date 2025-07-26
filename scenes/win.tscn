@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqyo12ijtokqg"]
+[gd_scene load_steps=9 format=3 uid="uid://cqyo12ijtokqg"]
 
-[ext_resource type="Texture2D" uid="uid://cl1nvdrxqddcf" path="res://assets/imo/imo1.png" id="1_826fv"]
 [ext_resource type="Script" uid="uid://dkrmmrmwj8xov" path="res://scenes/win.gd" id="1_iiocm"]
-[ext_resource type="Texture2D" uid="uid://d3egoeunk7qwf" path="res://assets/imo/imo2.png" id="2_iiocm"]
+[ext_resource type="Texture2D" uid="uid://cm1jub7dsb7rj" path="res://assets/imo/imohabla1.png" id="2_tylv2"]
+[ext_resource type="Texture2D" uid="uid://52g7osd3na65" path="res://assets/imo/imohabla2.png" id="3_5vxan"]
+[ext_resource type="Texture2D" uid="uid://db2vbc2dryiyf" path="res://assets/imo/imohabla3.png" id="4_4826q"]
+[ext_resource type="Texture2D" uid="uid://b07po6ec0ivbh" path="res://assets/imo/imohabla4.png" id="5_531e2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_afbyi"]
 specular_color = Color(0, 0, 0, 1)
@@ -11,13 +13,19 @@ specular_color = Color(0, 0, 0, 1)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_826fv")
+"texture": ExtResource("2_tylv2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_iiocm")
+"texture": ExtResource("3_5vxan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4826q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_531e2")
 }],
 "loop": true,
-"name": &"default",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -36,7 +44,8 @@ texture = SubResource("CanvasTexture_afbyi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1316, 444)
 sprite_frames = SubResource("SpriteFrames_yxbqr")
-autoplay = "default"
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
