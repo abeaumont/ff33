@@ -16,10 +16,11 @@ El juego es fully AI free, tanto en la generación de código, textos, assets, e
 
 ```bash
 cd ff33
-godot project.godot
+mkdir game
+unzip ff33.zip -d game
+cd game
+godot project.binary
 ```
-
-F5 para ejecutar el juego
 
 ## Assets
 
