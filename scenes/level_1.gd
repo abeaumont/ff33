@@ -32,4 +32,4 @@ func _on_save_item_clicked(resource_name: String) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.pressed and event.keycode == KEY_I:
-		$inventory.show()
+		$inventory.visible = !$inventory.visible
