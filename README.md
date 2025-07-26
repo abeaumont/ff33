@@ -1,6 +1,6 @@
 # FF33
 
-Una aventura gráfica siguiendo la línea de los grandes clásicos del point and click, como los que tanto se han referenciado en el hackit de este año.
+Una aventura gráfica (by w0pr) siguiendo la línea de los grandes clásicos del point and click, como los que tanto se han referenciado en el hackit de este año.
 Features:
 - Point and click clásico.
 - Objectos con acciones contextuales, dependiendo del tipo de objeto y el estado.
