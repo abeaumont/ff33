@@ -1,19 +1,14 @@
 extends Node2D
 
-var objects = []
-var grid = []
-
 func _ready():
-	pass
+	print("Ready, baby!")
+	add("genericItem_color_005")
 	
 func _process(_delta):
 	pass
 
-func add(object):
-	objects.append(object)
+func add(resource_name):
+	$GridContainer.add_object(resource_name)
 	
-func delete(object):
-	for i in range(objects.size()):
-		if object == objects[i]:
-			objects.remove_at(i)
-			break
+func delete(resource_name):
+	$GridContainer.remove_object(resource_name)

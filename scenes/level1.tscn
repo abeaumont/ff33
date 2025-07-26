@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://q0qk3a87pu5t"]
 
 [ext_resource type="Script" uid="uid://7iipyqlahqn5" path="res://scenes/level_1.gd" id="1_wwpf4"]
-[ext_resource type="Texture2D" uid="uid://clwbxxmj8yq08" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
+[ext_resource type="Texture2D" uid="uid://d3kdew8aurakp" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
 [ext_resource type="PackedScene" uid="uid://mnj4vx3iqso" path="res://scenes/actions_menu.tscn" id="3_ru4tf"]
 [ext_resource type="Script" uid="uid://dnicrmcf717hd" path="res://scenes/actions_menu.gd" id="4_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://bscsmrybp3dkm" path="res://scenes/inventory.tscn" id="4_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://bi6ar1fa5ac45" path="res://scenes/item.tscn" id="5_6sh32"]
-[ext_resource type="Texture2D" uid="uid://bnrn6yulhddco" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
-[ext_resource type="Texture2D" uid="uid://cw8tpfcls6daf" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
+[ext_resource type="Texture2D" uid="uid://bd60o4c4lhxlj" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
+[ext_resource type="Texture2D" uid="uid://c0pn4b2qjyvam" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_wwpf4")
