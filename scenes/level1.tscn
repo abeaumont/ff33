@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://q0qk3a87pu5t"]
+[gd_scene load_steps=12 format=3 uid="uid://q0qk3a87pu5t"]
 
 [ext_resource type="Script" uid="uid://7iipyqlahqn5" path="res://scenes/level_1.gd" id="1_wwpf4"]
 [ext_resource type="Texture2D" uid="uid://clwbxxmj8yq08" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bnrn6yulhddco" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
 [ext_resource type="Texture2D" uid="uid://cw8tpfcls6daf" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
 [ext_resource type="Script" uid="uid://bxq8j3wya4kda" path="res://scenes/item_msg_box.gd" id="8_bbk5w"]
+[ext_resource type="Texture2D" uid="uid://d336ggx8fel7c" path="res://assets/objects/Colored/genericItem_color_155.png" id="9_conm7"]
+[ext_resource type="Texture2D" uid="uid://o5uato0fsry4" path="res://assets/objects/Colored/genericItem_color_161.png" id="10_d3jkd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbk5w"]
 font_size = 50
@@ -72,6 +74,27 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("7_bbk5w")
 metadata/_edit_group_ = true
 
+[node name="Key" parent="." instance=ExtResource("5_6sh32")]
+visible = false
+description = "Es una llave!"
+
+[node name="Sprite2D" parent="Key" index="0"]
+position = Vector2(1492, 804)
+texture = ExtResource("9_conm7")
+
+[node name="CollisionShape2D" parent="Key" index="1"]
+position = Vector2(1475, 816)
+
+[node name="Dust" parent="." instance=ExtResource("5_6sh32")]
+description = "Caray, cuánto polvo acumulado!"
+
+[node name="Sprite2D" parent="Dust" index="0"]
+position = Vector2(1492, 798)
+texture = ExtResource("10_d3jkd")
+
+[node name="CollisionShape2D" parent="Dust" index="1"]
+position = Vector2(1471, 801)
+
 [connection signal="on_item_button_clicked" from="inventory" to="." method="_on_inventory_on_item_button_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="." method="_on_save_item_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="inventory" method="add"]
@@ -79,7 +102,11 @@ metadata/_edit_group_ = true
 [connection signal="open_message_box" from="ActionsMenu" to="." method="_on_actions_menu_open_message_box"]
 [connection signal="open_actions_menu" from="Shovel" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Bone" to="." method="_on_open_actions_menu"]
+[connection signal="open_actions_menu" from="Key" to="." method="_on_open_actions_menu"]
+[connection signal="open_actions_menu" from="Dust" to="." method="_on_open_actions_menu"]
 
 [editable path="ActionsMenu"]
 [editable path="Shovel"]
 [editable path="Bone"]
+[editable path="Key"]
+[editable path="Dust"]

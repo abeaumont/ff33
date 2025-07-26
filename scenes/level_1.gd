@@ -7,7 +7,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(defaultCursor)
 
 func _on_open_actions_menu(item) -> void:
-	if item == $Shovel:
+	if item == $Shovel or item == $Dust:
 		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Guardar.hide()
 		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Usar.show()
 	else:	
