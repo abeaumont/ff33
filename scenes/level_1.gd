@@ -17,4 +17,9 @@ func _init() -> void:
 
 func _on_open_actions_menu(item) -> void:
 	$ActionsMenu.show_menu(item)
-	print(item)
+
+
+func _on_actions_menu_open_message_box(message: Variant) -> void:
+	$MsgBox.show_box(message)
+	await get_tree().create_timer(3).timeout
+	$MsgBox.hide()

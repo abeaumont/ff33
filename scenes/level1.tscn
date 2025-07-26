@@ -1,13 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://q0qk3a87pu5t"]
+[gd_scene load_steps=10 format=3 uid="uid://q0qk3a87pu5t"]
 
 [ext_resource type="Script" uid="uid://7iipyqlahqn5" path="res://scenes/level_1.gd" id="1_wwpf4"]
 [ext_resource type="Texture2D" uid="uid://d3kdew8aurakp" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
 [ext_resource type="PackedScene" uid="uid://mnj4vx3iqso" path="res://scenes/actions_menu.tscn" id="3_ru4tf"]
-[ext_resource type="Script" uid="uid://dnicrmcf717hd" path="res://scenes/actions_menu.gd" id="4_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://bscsmrybp3dkm" path="res://scenes/inventory.tscn" id="4_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://bi6ar1fa5ac45" path="res://scenes/item.tscn" id="5_6sh32"]
 [ext_resource type="Texture2D" uid="uid://bd60o4c4lhxlj" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
 [ext_resource type="Texture2D" uid="uid://c0pn4b2qjyvam" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
+[ext_resource type="Script" uid="uid://bxq8j3wya4kda" path="res://scenes/item_msg_box.gd" id="8_bbk5w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bbk5w"]
+font_size = 50
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_wwpf4")
@@ -21,7 +24,6 @@ offset_left = 6.0
 offset_top = -1.0
 offset_right = 1539.0
 offset_bottom = 1017.0
-script = ExtResource("4_bbk5w")
 
 [node name="inventory" parent="." instance=ExtResource("4_dwgg1")]
 visible = false
@@ -30,6 +32,7 @@ position = Vector2(520, 240)
 [node name="Shovel" parent="." instance=ExtResource("5_6sh32")]
 position = Vector2(1190, 914)
 collision_layer = 129
+description = "Una pala muy pesada."
 
 [node name="Sprite2D" parent="Shovel" index="0"]
 position = Vector2(0, 0)
@@ -37,6 +40,7 @@ texture = ExtResource("6_ejswk")
 
 [node name="Bone" parent="." instance=ExtResource("5_6sh32")]
 position = Vector2(61, 517)
+description = "Vaya, este hueso tiene pinta de ser muy antiguo."
 
 [node name="Sprite2D" parent="Bone" index="0"]
 position = Vector2(0, 0)
@@ -44,6 +48,31 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("7_bbk5w")
 metadata/_edit_group_ = true
 
+[node name="MsgBox" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 268.0
+offset_top = 150.0
+offset_right = 1268.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.345098, 0.345098, 0.686275)
+script = ExtResource("8_bbk5w")
+
+[node name="Msg" type="Label" parent="MsgBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_bbk5w")
+autowrap_mode = 3
+
+[connection signal="open_message_box" from="ActionsMenu" to="." method="_on_actions_menu_open_message_box"]
 [connection signal="open_actions_menu" from="Shovel" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Bone" to="." method="_on_open_actions_menu"]
 

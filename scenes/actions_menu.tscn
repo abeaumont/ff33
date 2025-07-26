@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://mnj4vx3iqso"]
 
-[ext_resource type="Script" uid="uid://bvs7wvf2mt3mq" path="res://scenes/control.gd" id="1_f1fqk"]
+[ext_resource type="Script" uid="uid://dnicrmcf717hd" path="res://scenes/actions_menu.gd" id="1_x7b7v"]
 
 [node name="MarginContainer" type="MarginContainer"]
 visible = false
@@ -14,10 +14,10 @@ theme_override_constants/margin_left = 400
 theme_override_constants/margin_top = 300
 theme_override_constants/margin_right = 400
 theme_override_constants/margin_bottom = 300
+script = ExtResource("1_x7b7v")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
-script = ExtResource("1_f1fqk")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 1
@@ -44,21 +44,25 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Action1" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+[node name="Ver" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "ver"
 alignment = 0
 
-[node name="Action2" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+[node name="Guardar" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "guardar"
 alignment = 0
 
-[node name="Action3" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
+[node name="Usar" type="Button" parent="Control/ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "usar con
 "
 alignment = 0
+
+[connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/Ver" to="." method="_on_ver_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/Guardar" to="." method="_on_guardar_pressed"]
+[connection signal="pressed" from="Control/ColorRect/MarginContainer/VBoxContainer/Usar" to="." method="_on_usar_pressed"]
