@@ -17,3 +17,10 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	Input.set_custom_mouse_cursor(defaultCursor)
+	
+func get_resource_name():
+	var sprite: Sprite2D = $Sprite2D
+	var texture: Texture2D = sprite.texture
+
+	if texture and texture.resource_path != "":
+		return texture.resource_path.get_file().get_basename()

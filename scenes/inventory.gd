@@ -1,7 +1,6 @@
 extends Node2D
 
 func _ready():
-	print("Ready, baby!")
 	add("genericItem_color_005")
 	
 func _process(_delta):

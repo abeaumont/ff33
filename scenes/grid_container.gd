@@ -12,7 +12,6 @@ func _ready():
 	pass
 
 func add_object(resource_name: String):
-	print("add_object called with:", resource_name)
 	var resource_path = "res://assets/objects/Colored/%s.png" % resource_name
 
 	# Try to load the texture
@@ -24,10 +23,7 @@ func add_object(resource_name: String):
 	# Find and replace first EmptyButton
 	var index = 0
 	for child in get_children():
-		print("Checking child index %d" % index)
-		print(child)
 		if child is EmptyButton:
-			print("Match!")
 			child.queue_free()
 
 			var item = item_button_scene.instantiate()
