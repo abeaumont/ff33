@@ -7,7 +7,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(defaultCursor)
 
 func _on_open_actions_menu(item) -> void:
-	if item == $Shovel or item == $Dust or item == $Cofre:
+	if item == $SoftSand or item == $Dust or item == $Cofre:
 		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Guardar.hide()
 		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Usar.show()
 	else:	
@@ -49,6 +49,11 @@ func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
 		$inventory.remove(resource_name)
 		$Dust.hide()
 		$Key.show()
+		current_item = null
+	elif current_item == $SoftSand and item == $Shovel:
+		$inventory.remove(resource_name)
+		$SoftSand.hide()
+		$Bone.show()
 		current_item = null
 	elif current_item == $Cofre and item == $Key:
 		$inventory.remove(resource_name)

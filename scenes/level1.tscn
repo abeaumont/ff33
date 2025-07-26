@@ -1,19 +1,19 @@
 [gd_scene load_steps=16 format=3 uid="uid://q0qk3a87pu5t"]
 
 [ext_resource type="Script" uid="uid://7iipyqlahqn5" path="res://scenes/level_1.gd" id="1_wwpf4"]
-[ext_resource type="Texture2D" uid="uid://clwbxxmj8yq08" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
+[ext_resource type="Texture2D" uid="uid://d3kdew8aurakp" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
 [ext_resource type="PackedScene" uid="uid://mnj4vx3iqso" path="res://scenes/actions_menu.tscn" id="3_ru4tf"]
 [ext_resource type="PackedScene" uid="uid://bscsmrybp3dkm" path="res://scenes/inventory.tscn" id="4_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://bi6ar1fa5ac45" path="res://scenes/item.tscn" id="5_6sh32"]
-[ext_resource type="Texture2D" uid="uid://bnrn6yulhddco" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
-[ext_resource type="Texture2D" uid="uid://cw8tpfcls6daf" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
+[ext_resource type="Texture2D" uid="uid://bd60o4c4lhxlj" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
+[ext_resource type="Texture2D" uid="uid://c0pn4b2qjyvam" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
 [ext_resource type="Script" uid="uid://bxq8j3wya4kda" path="res://scenes/item_msg_box.gd" id="8_bbk5w"]
-[ext_resource type="Texture2D" uid="uid://d336ggx8fel7c" path="res://assets/objects/Colored/genericItem_color_155.png" id="9_conm7"]
-[ext_resource type="Texture2D" uid="uid://o5uato0fsry4" path="res://assets/objects/Colored/genericItem_color_161.png" id="10_d3jkd"]
-[ext_resource type="Texture2D" uid="uid://cgbkqgqagnnn0" path="res://assets/objects/Colored/genericItem_color_011.png" id="11_u3awl"]
-[ext_resource type="Texture2D" uid="uid://bms7uax1laxe" path="res://assets/objects/Colored/genericItem_color_102.png" id="12_2ku1j"]
-[ext_resource type="Texture2D" uid="uid://bp0nste8p27yx" path="res://assets/objects/gafabegitxo.png" id="13_f31uk"]
-[ext_resource type="AudioStream" uid="uid://p1qo88vndag" path="res://assets/music/Interior Birdecorator Decorate.ogg" id="14_gnai3"]
+[ext_resource type="Texture2D" uid="uid://cn04l4d27lggy" path="res://assets/objects/Colored/genericItem_color_155.png" id="9_conm7"]
+[ext_resource type="Texture2D" uid="uid://d6g5ktj48fya" path="res://assets/objects/Colored/genericItem_color_161.png" id="10_d3jkd"]
+[ext_resource type="Texture2D" uid="uid://crmf2841i0yvh" path="res://assets/objects/Colored/genericItem_color_011.png" id="11_u3awl"]
+[ext_resource type="Texture2D" uid="uid://pdxgpbvpiuat" path="res://assets/objects/Colored/genericItem_color_102.png" id="12_2ku1j"]
+[ext_resource type="Texture2D" uid="uid://bmkyn6el7u3yw" path="res://assets/objects/Colored/gafabegitxo.png" id="13_f31uk"]
+[ext_resource type="AudioStream" uid="uid://d2623mblj6qnc" path="res://assets/music/Interior Birdecorator Decorate.ogg" id="14_gnai3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbk5w"]
 font_size = 50
@@ -60,8 +60,7 @@ label_settings = SubResource("LabelSettings_bbk5w")
 autowrap_mode = 3
 
 [node name="Shovel" parent="." instance=ExtResource("5_6sh32")]
-visible = false
-position = Vector2(1190, 914)
+position = Vector2(390, 890)
 collision_layer = 129
 description = "Una pala muy pesada"
 
@@ -70,7 +69,8 @@ position = Vector2(0, 0)
 texture = ExtResource("6_ejswk")
 
 [node name="Bone" parent="." instance=ExtResource("5_6sh32")]
-position = Vector2(61, 517)
+visible = false
+position = Vector2(600, 950)
 description = "Hmmm, si pudiera encontrar un perro..."
 
 [node name="Sprite2D" parent="Bone" index="0"]
@@ -136,6 +136,13 @@ position = Vector2(90, 788)
 stream = ExtResource("14_gnai3")
 autoplay = true
 
+[node name="SoftSand" parent="." instance=ExtResource("5_6sh32")]
+position = Vector2(600, 950)
+description = "La tierra está suelta, ¿hay algo enterrado?"
+
+[node name="Sprite2D" parent="SoftSand" index="0"]
+position = Vector2(1190, 910)
+
 [connection signal="on_item_button_clicked" from="inventory" to="." method="_on_inventory_on_item_button_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="." method="_on_save_item_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="inventory" method="add"]
@@ -148,6 +155,7 @@ autoplay = true
 [connection signal="open_actions_menu" from="Brush" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Cofre" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Glasses" to="." method="_on_open_actions_menu"]
+[connection signal="open_actions_menu" from="SoftSand" to="." method="_on_open_actions_menu"]
 
 [editable path="ActionsMenu"]
 [editable path="Shovel"]
@@ -157,3 +165,4 @@ autoplay = true
 [editable path="Brush"]
 [editable path="Cofre"]
 [editable path="Glasses"]
+[editable path="SoftSand"]
