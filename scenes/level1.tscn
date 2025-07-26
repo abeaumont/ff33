@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q0qk3a87pu5t"]
+[gd_scene load_steps=15 format=3 uid="uid://q0qk3a87pu5t"]
 
 [ext_resource type="Script" uid="uid://7iipyqlahqn5" path="res://scenes/level_1.gd" id="1_wwpf4"]
 [ext_resource type="Texture2D" uid="uid://clwbxxmj8yq08" path="res://assets/backgrounds/1.png" id="2_wwpf4"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://o5uato0fsry4" path="res://assets/objects/Colored/genericItem_color_161.png" id="10_d3jkd"]
 [ext_resource type="Texture2D" uid="uid://cgbkqgqagnnn0" path="res://assets/objects/Colored/genericItem_color_011.png" id="11_u3awl"]
 [ext_resource type="Texture2D" uid="uid://bms7uax1laxe" path="res://assets/objects/Colored/genericItem_color_102.png" id="12_2ku1j"]
+[ext_resource type="Texture2D" uid="uid://bp0nste8p27yx" path="res://assets/objects/gafabegitxo.png" id="13_f31uk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbk5w"]
 font_size = 50
@@ -118,6 +119,16 @@ texture = ExtResource("12_2ku1j")
 [node name="CollisionShape2D" parent="Cofre" index="1"]
 position = Vector2(87, 797)
 
+[node name="Glasses" parent="." instance=ExtResource("5_6sh32")]
+visible = false
+
+[node name="Sprite2D" parent="Glasses" index="0"]
+position = Vector2(75, 790)
+texture = ExtResource("13_f31uk")
+
+[node name="CollisionShape2D" parent="Glasses" index="1"]
+position = Vector2(90, 788)
+
 [connection signal="on_item_button_clicked" from="inventory" to="." method="_on_inventory_on_item_button_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="." method="_on_save_item_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="inventory" method="add"]
@@ -129,6 +140,7 @@ position = Vector2(87, 797)
 [connection signal="open_actions_menu" from="Dust" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Brush" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Cofre" to="." method="_on_open_actions_menu"]
+[connection signal="open_actions_menu" from="Glasses" to="." method="_on_open_actions_menu"]
 
 [editable path="ActionsMenu"]
 [editable path="Shovel"]
@@ -137,3 +149,4 @@ position = Vector2(87, 797)
 [editable path="Dust"]
 [editable path="Brush"]
 [editable path="Cofre"]
+[editable path="Glasses"]
