@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi6ar1fa5ac45"]
+[gd_scene load_steps=3 format=3 uid="uid://bi6ar1fa5ac45"]
 
 [ext_resource type="Script" uid="uid://cg0nd75fcj0ly" path="res://scenes/item.gd" id="1_s8enn"]
 [ext_resource type="Texture2D" uid="uid://biyirt00wlif6" path="res://assets/objects/Colored/genericItem_color_009.png" id="2_s8enn"]
@@ -12,7 +12,6 @@ script = ExtResource("1_s8enn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1190, 914)
-texture = ExtResource("2_s8enn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_s8enn")

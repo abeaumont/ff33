@@ -17,8 +17,6 @@ func _on_open_actions_menu(item) -> void:
 
 func _on_actions_menu_open_message_box(message: Variant) -> void:
 	$MsgBox.show_box(message)
-	await get_tree().create_timer(3).timeout
-	$MsgBox.hide()
 
 func _on_save_item_clicked(resource_name: String) -> void:
 	for child in get_children():
@@ -36,6 +34,8 @@ func _on_item_picked(item) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.pressed and event.keycode == KEY_I:
 		$inventory.visible = !$inventory.visible
+	if event.pressed and event.keycode == KEY_ESCAPE:
+		get_tree().quit()
 
 func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
 	var item
@@ -47,3 +47,7 @@ func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
 	if current_item == $Shovel and item == $Bone:
 		$inventory.remove(resource_name)
 		$inventory.add($Shovel.get_resource_name())
+		$Shovel.hide()
+		current_item = null
+	else:
+		$MsgBox.show_box("Eso no tiene el más mínimo sentido, insensato!")

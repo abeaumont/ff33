@@ -13,7 +13,7 @@ func add(resource_name):
 	print("addition requested!")
 	$GridContainer.add_object(resource_name)
 	
-func delete(resource_name):
+func remove(resource_name):
 	$GridContainer.remove_object(resource_name)
 
 func _on_item_button_clicked(resource_name: Variant) -> void:

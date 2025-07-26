@@ -28,13 +28,13 @@ func add_object(resource_name: String):
 		if child is EmptyButton:
 			child.queue_free()
 
-			var item = item_button_scene.instantiate()
-			item.icon = icon
+			var item_button = item_button_scene.instantiate()
+			item_button.icon = icon
 			# item.disabled = true
 
-			item.on_item_button_clicked.connect(_on_item_button_clicked)
-			add_child(item)
-			move_child(item, index)
+			item_button.on_item_button_clicked.connect(_on_item_button_clicked)
+			add_child(item_button)
+			move_child(item_button, index)
 			return
 		index += 1
 
