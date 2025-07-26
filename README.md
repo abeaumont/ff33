@@ -12,6 +12,15 @@ Features:
 
 El juego es fully AI free, tanto en la generación de código, textos, assets, etc.
 
+## Play
+
+```bash
+cd ff33
+godot project.godot
+```
+
+F5 para ejecutar el juego
+
 ## Assets
 
 Todos los assets externos tienen licencia CC0:
