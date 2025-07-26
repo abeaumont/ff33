@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2lyxvrovrurc"]
+
+[ext_resource type="Script" uid="uid://de3g7bsb2j5nx" path="res://scenes/item_button.gd" id="1_ps3q3"]
+[ext_resource type="PackedScene" uid="uid://bi6ar1fa5ac45" path="res://scenes/item.tscn" id="2_hhgsf"]
+
+[node name="ItemButton" type="Button"]
+offset_right = 193.0
+offset_bottom = 170.0
+icon_alignment = 1
+script = ExtResource("1_ps3q3")
+
+[node name="Area2D" parent="." instance=ExtResource("2_hhgsf")]
+position = Vector2(95, 80)
+
+[editable path="Area2D"]
