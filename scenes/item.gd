@@ -3,7 +3,7 @@ class_name Itemm
 
 var defaultCursor = load("res://assets/cursors/Outline/Double/cursor_none.png")
 var itemCursor = load("res://assets/cursors/Outline/Double/target_b.png")
-var description
+@export var description : String
 
 signal open_actions_menu(item)
 

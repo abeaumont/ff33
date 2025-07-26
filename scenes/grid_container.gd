@@ -3,6 +3,8 @@ extends GridContainer
 var empty_button_scene = preload("res://scenes/EmptyButton.tscn")
 var item_button_scene = preload("res://scenes/ItemButton.tscn")
 
+signal on_item_button_clicked(resource_name)
+
 const N = 9
 
 func _ready():
@@ -28,8 +30,9 @@ func add_object(resource_name: String):
 
 			var item = item_button_scene.instantiate()
 			item.icon = icon
-			item.disabled = true
+			# item.disabled = true
 
+			item.on_item_button_clicked.connect(_on_item_button_clicked)
 			add_child(item)
 			move_child(item, index)
 			return
@@ -57,3 +60,6 @@ func remove_object(resource_name: String):
 		index += 1
 
 	push_warning("No item with icon %s found in grid." % resource_name)
+
+func _on_item_button_clicked(resource_name: String):
+	emit_signal("on_item_button_clicked", resource_name)

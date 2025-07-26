@@ -1,21 +1,18 @@
 extends Node2D
 
-const CLICK_RADIUS = 100
 var defaultCursor = load("res://assets/cursors/Outline/Double/cursor_none.png");
-
-var objects = []
+var current_item
 
 func _ready():
 	Input.set_custom_mouse_cursor(defaultCursor)
-	
-func _init() -> void:
-	Input.set_custom_mouse_cursor(defaultCursor)
-	#print($Shovel.is_pickable())
-	#print($Shovel.is_visible())
-#	objects = [$shovel]
-#	
 
 func _on_open_actions_menu(item) -> void:
+	if item == $Shovel:
+		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Guardar.hide()
+		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Usar.show()
+	else:	
+		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Guardar.show()
+		$ActionsMenu/Control/ColorRect/MarginContainer/VBoxContainer/Usar.hide()
 	$ActionsMenu.show_menu(item)
 
 func _on_actions_menu_open_message_box(message: Variant) -> void:
@@ -23,25 +20,30 @@ func _on_actions_menu_open_message_box(message: Variant) -> void:
 	await get_tree().create_timer(3).timeout
 	$MsgBox.hide()
 
-
 func _on_save_item_clicked(resource_name: String) -> void:
 	for child in get_children():
 		if child is Itemm and child.get_resource_name() == resource_name:
-			remove_child(child)
+			child.hide()
 			break
+
+func _on_use_item_clicked(item: Variant) -> void:
+	current_item = item
+	$inventory.show()
 	
 func _on_item_picked(item) -> void:
-	match state:
-		START:
-			if item == $Bone:
-				state = BONE_PICKED
-			else:
-				print("Unknown item picked on state START")
-		BONE_PICKED:
-			print("Unknown item picked on state BONE_PICKED")
-		END:
-			print("Unknown item picked on state END")
+	pass
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.pressed and event.keycode == KEY_I:
 		$inventory.visible = !$inventory.visible
+
+func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
+	var item
+	for child in get_children():
+		if child is Itemm and child.get_resource_name() == resource_name:
+			item = child
+			break
+	if not current_item: return
+	if current_item == $Shovel and item == $Bone:
+		$inventory.remove(resource_name)
+		$inventory.add($Shovel.get_resource_name())
