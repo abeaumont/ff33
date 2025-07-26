@@ -19,34 +19,15 @@ script = ExtResource("1_wwpf4")
 position = Vector2(768, 512)
 texture = ExtResource("2_wwpf4")
 
+[node name="inventory" parent="." instance=ExtResource("4_dwgg1")]
+visible = false
+position = Vector2(520, 240)
+
 [node name="ActionsMenu" parent="." instance=ExtResource("3_ru4tf")]
 offset_left = 6.0
 offset_top = -1.0
 offset_right = 1539.0
 offset_bottom = 1017.0
-
-[node name="inventory" parent="." instance=ExtResource("4_dwgg1")]
-visible = false
-position = Vector2(520, 240)
-
-[node name="Shovel" parent="." instance=ExtResource("5_6sh32")]
-position = Vector2(1190, 914)
-collision_layer = 129
-description = "Una pala muy pesada"
-
-[node name="Sprite2D" parent="Shovel" index="0"]
-position = Vector2(0, 0)
-texture = ExtResource("6_ejswk")
-
-[node name="Bone" parent="." instance=ExtResource("5_6sh32")]
-position = Vector2(61, 517)
-description = "Vaya, este huesto tiene pinta de ser muy antiguo"
-
-[node name="Sprite2D" parent="Bone" index="0"]
-position = Vector2(0, 0)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("7_bbk5w")
-metadata/_edit_group_ = true
 
 [node name="MsgBox" type="ColorRect" parent="."]
 visible = false
@@ -72,11 +53,30 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_bbk5w")
 autowrap_mode = 3
 
+[node name="Shovel" parent="." instance=ExtResource("5_6sh32")]
+position = Vector2(1190, 914)
+collision_layer = 129
+description = "Una pala muy pesada"
+
+[node name="Sprite2D" parent="Shovel" index="0"]
+position = Vector2(0, 0)
+texture = ExtResource("6_ejswk")
+
+[node name="Bone" parent="." instance=ExtResource("5_6sh32")]
+position = Vector2(61, 517)
+description = "Vaya, este huesto tiene pinta de ser muy antiguo"
+
+[node name="Sprite2D" parent="Bone" index="0"]
+position = Vector2(0, 0)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_bbk5w")
+metadata/_edit_group_ = true
+
+[connection signal="on_item_button_clicked" from="inventory" to="." method="_on_inventory_on_item_button_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="." method="_on_save_item_clicked"]
 [connection signal="action_menu_on_save_item_clicked" from="ActionsMenu" to="inventory" method="add"]
 [connection signal="action_menu_on_use_item_clicked" from="ActionsMenu" to="." method="_on_use_item_clicked"]
 [connection signal="open_message_box" from="ActionsMenu" to="." method="_on_actions_menu_open_message_box"]
-[connection signal="on_item_button_clicked" from="inventory" to="." method="_on_inventory_on_item_button_clicked"]
 [connection signal="open_actions_menu" from="Shovel" to="." method="_on_open_actions_menu"]
 [connection signal="open_actions_menu" from="Bone" to="." method="_on_open_actions_menu"]
 
