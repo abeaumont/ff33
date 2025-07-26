@@ -7,6 +7,8 @@
 [node name="EmptyButton" type="Button"]
 offset_right = 193.0
 offset_bottom = 170.0
+disabled = true
+icon = ExtResource("3_wp5fs")
 script = ExtResource("1_wp5fs")
 
 [node name="Area2D" parent="." instance=ExtResource("2_wp5fs")]

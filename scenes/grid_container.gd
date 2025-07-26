@@ -8,8 +8,6 @@ const N = 9
 func _ready():
 	for i in range(N):
 		var button = empty_button_scene.instantiate()
-		button.icon = load("res://assets/ui/inventory_panel.png")
-		button.disabled = true
 		add_child(button)
 	pass
 
@@ -56,8 +54,6 @@ func remove_object(resource_name: String):
 			child.queue_free()
 
 			var empty = empty_button_scene.instantiate()
-			empty.icon = load("res://assets/ui/inventory_panel.png")
-			empty.disabled = true
 
 			add_child(empty)
 			move_child(empty, index)
