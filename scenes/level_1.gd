@@ -27,15 +27,14 @@ func _on_save_item_clicked(resource_name: String) -> void:
 func _on_use_item_clicked(item: Variant) -> void:
 	current_item = item
 	$inventory.show()
-	
-func _on_item_picked(item) -> void:
-	pass
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.pressed and event.keycode == KEY_I:
 		$inventory.visible = !$inventory.visible
 	if event.pressed and event.keycode == KEY_ESCAPE:
 		get_tree().quit()
+	if event.pressed and event.keycode == KEY_W:
+		get_tree().change_scene_to_file("res://scenes/win.tscn")
 
 func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
 	var item
@@ -44,10 +43,15 @@ func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
 			item = child
 			break
 	if not current_item: return
-	if current_item == $Shovel and item == $Bone:
+	if current_item == $Dust and item == $Brush:
 		$inventory.remove(resource_name)
-		$inventory.add($Shovel.get_resource_name())
-		$Shovel.hide()
+		#$inventory.add($Key.get_resource_name())
+		$Dust.hide()
+		$Key.show()
+		current_item = null
+	elif current_item == $Cofre and item == $Key:
+		$inventory.remove(resource_name)
+		$Cofre.hide()
 		current_item = null
 	else:
-		$MsgBox.show_box("Eso no tiene el más mínimo sentido, insensato!")
+		$MsgBox.show_box("Eso no tiene el más mínimo sentido, ¡insensato!")

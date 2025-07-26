@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bscsmrybp3dkm"]
+[gd_scene load_steps=5 format=3 uid="uid://bscsmrybp3dkm"]
 
 [ext_resource type="Script" uid="uid://4m7v6fb3aods" path="res://scenes/inventory.gd" id="1_hj2ta"]
 [ext_resource type="Texture2D" uid="uid://cde2csovo2jd6" path="res://assets/ui/PNG/Double/banner_modern.png" id="2_ty45s"]
 [ext_resource type="Script" uid="uid://c0au7j4lh4pj3" path="res://scenes/grid_container.gd" id="3_uae8j"]
+[ext_resource type="Texture2D" uid="uid://gyh40t863msp" path="res://assets/ui/PNG/Double/button_red_close.png" id="4_53g1v"]
 
 [node name="inventory" type="Node2D"]
 script = ExtResource("1_hj2ta")
@@ -42,4 +43,12 @@ size_flags_horizontal = 4
 columns = 3
 script = ExtResource("3_uae8j")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 384.0
+offset_top = 19.0
+offset_right = 488.0
+offset_bottom = 75.0
+icon = ExtResource("4_53g1v")
+
 [connection signal="on_item_button_clicked" from="GridContainer" to="." method="_on_item_button_clicked"]
+[connection signal="pressed" from="Button" to="." method="_on_close_pressed"]

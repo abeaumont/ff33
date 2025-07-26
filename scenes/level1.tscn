@@ -70,7 +70,7 @@ texture = ExtResource("6_ejswk")
 
 [node name="Bone" parent="." instance=ExtResource("5_6sh32")]
 position = Vector2(61, 517)
-description = "Vaya, este huesto tiene pinta de ser muy antiguo"
+description = "Hmmm, si pudiera encontrar un perro..."
 
 [node name="Sprite2D" parent="Bone" index="0"]
 position = Vector2(0, 0)

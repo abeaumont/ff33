@@ -18,3 +18,7 @@ func remove(resource_name):
 
 func _on_item_button_clicked(resource_name: Variant) -> void:
 	emit_signal("on_item_button_clicked", resource_name)
+
+
+func _on_close_pressed() -> void:
+	hide()
