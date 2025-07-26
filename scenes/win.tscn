@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqyo12ijtokqg"]
+
+[ext_resource type="Texture2D" uid="uid://cl1nvdrxqddcf" path="res://assets/imo/imo1.png" id="1_826fv"]
+[ext_resource type="Script" uid="uid://dkrmmrmwj8xov" path="res://scenes/win.gd" id="1_iiocm"]
+[ext_resource type="Texture2D" uid="uid://d3egoeunk7qwf" path="res://assets/imo/imo2.png" id="2_iiocm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_afbyi"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxbqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_826fv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iiocm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iiocm"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="win" type="Node2D"]
+script = ExtResource("1_iiocm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(768, 512)
+scale = Vector2(-1536, -1024)
+texture = SubResource("CanvasTexture_afbyi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1316, 444)
+sprite_frames = SubResource("SpriteFrames_yxbqr")
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 205.0
+offset_top = 265.0
+offset_right = 1272.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 23
+label_settings = SubResource("LabelSettings_iiocm")
+autowrap_mode = 3
+max_lines_visible = 4
+
+[node name="Button" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 686.0
+offset_right = 979.0
+offset_bottom = 754.0
+theme_override_font_sizes/font_size = 30
+text = "Salir"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
