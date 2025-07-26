@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="ff33"
-run/main_scene="uid://q0qk3a87pu5t"
+run/main_scene="uid://bwa4t3o5oqmc2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=3000
 
 [display]
 

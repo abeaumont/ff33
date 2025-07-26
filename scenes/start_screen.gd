@@ -1,6 +1,6 @@
 extends Node2D
 
-var text = "¡Enhorabuena Begitxo! Ahora que has encontrado tus gafas de sol puedes venirte a la Euskal a ayudarnos con la organización que estamos a tope de trabajo!"
+var text = "Pero Begitxo! Sin tus gafas no puedes ir a la Euskal. Encuéntralas antes de volver de tus vacaciones, te esperamos en el BEC!"
 var size = 0
 
 
@@ -18,4 +18,4 @@ func _on_timer_timeout() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scenes/level1.tscn")

@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqyo12ijtokqg"]
+[gd_scene load_steps=11 format=3 uid="uid://cqyo12ijtokqg"]
 
 [ext_resource type="Script" uid="uid://dkrmmrmwj8xov" path="res://scenes/win.gd" id="1_iiocm"]
-[ext_resource type="Texture2D" uid="uid://cm1jub7dsb7rj" path="res://assets/imo/imohabla1.png" id="2_tylv2"]
-[ext_resource type="Texture2D" uid="uid://52g7osd3na65" path="res://assets/imo/imohabla2.png" id="3_5vxan"]
-[ext_resource type="Texture2D" uid="uid://db2vbc2dryiyf" path="res://assets/imo/imohabla3.png" id="4_4826q"]
-[ext_resource type="Texture2D" uid="uid://b07po6ec0ivbh" path="res://assets/imo/imohabla4.png" id="5_531e2"]
+[ext_resource type="Texture2D" uid="uid://cdatvmmtw8re2" path="res://assets/backgrounds/3.png" id="2_5vxan"]
+[ext_resource type="Texture2D" uid="uid://diktnevny1lwq" path="res://assets/imo/imohabla1.png" id="2_tylv2"]
+[ext_resource type="Texture2D" uid="uid://dnv0uwl7dqjku" path="res://assets/imo/imohabla2.png" id="3_5vxan"]
+[ext_resource type="Texture2D" uid="uid://lnpihlhiqqdb" path="res://assets/imo/imohabla3.png" id="4_4826q"]
+[ext_resource type="Texture2D" uid="uid://bclsbgeaxwgvv" path="res://assets/imo/imohabla4.png" id="5_531e2"]
+[ext_resource type="AudioStream" uid="uid://btefor5md7qbi" path="res://assets/music/Interior Birdecorator Explore_SILLY.ogg" id="7_4826q"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_afbyi"]
 specular_color = Color(0, 0, 0, 1)
@@ -29,20 +31,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_iiocm"]
+[sub_resource type="LabelSettings" id="LabelSettings_4826q"]
 font_size = 40
-font_color = Color(0, 0, 0, 1)
 
 [node name="win" type="Node2D"]
 script = ExtResource("1_iiocm")
 
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(768, 512)
+texture = ExtResource("2_5vxan")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(768, 512)
 scale = Vector2(-1536, -1024)
 texture = SubResource("CanvasTexture_afbyi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1316, 444)
+position = Vector2(1296, 103)
 sprite_frames = SubResource("SpriteFrames_yxbqr")
 animation = &"new_animation"
 autoplay = "new_animation"
@@ -51,16 +57,6 @@ autoplay = "new_animation"
 wait_time = 0.05
 autostart = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = 205.0
-offset_top = 265.0
-offset_right = 1272.0
-offset_bottom = 320.0
-theme_override_font_sizes/font_size = 23
-label_settings = SubResource("LabelSettings_iiocm")
-autowrap_mode = 3
-max_lines_visible = 4
-
 [node name="Button" type="Button" parent="."]
 offset_left = 512.0
 offset_top = 686.0
@@ -68,6 +64,25 @@ offset_right = 979.0
 offset_bottom = 754.0
 theme_override_font_sizes/font_size = 30
 text = "Salir"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 205.0
+offset_top = 175.0
+offset_right = 1205.0
+offset_bottom = 475.0
+color = Color(0.247059, 0.247059, 0.247059, 0.686275)
+
+[node name="Label" type="Label" parent="ColorRect"]
+offset_right = 1000.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 23
+label_settings = SubResource("LabelSettings_4826q")
+autowrap_mode = 3
+max_lines_visible = 4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_4826q")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
