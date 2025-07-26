@@ -11,12 +11,9 @@ func is_empty():
 
 func get_resource_name():
 	var texture: Texture2D = self.icon
-	print(texture)
 
 	if texture and texture.resource_path != "":
-		var result = texture.resource_path.get_file().get_basename()
-		print(result)
-		return result
+		return texture.resource_path.get_file().get_basename()
 		
 func _on_pressed():
 	emit_signal("on_item_button_clicked", get_resource_name())

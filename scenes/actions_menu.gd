@@ -13,7 +13,6 @@ func show_menu(item):
 func _on_ver_pressed() -> void:
 	hide()
 	emit_signal("open_message_box", current_item.description)
-	
 
 func _on_guardar_pressed() -> void:
 	hide()

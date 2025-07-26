@@ -21,6 +21,8 @@ func _on_actions_menu_open_message_box(message: Variant) -> void:
 func _on_save_item_clicked(resource_name: String) -> void:
 	for child in get_children():
 		if child is Itemm and child.get_resource_name() == resource_name:
+			if child == $Glasses:
+				get_tree().change_scene_to_file("res://scenes/win.tscn")
 			child.hide()
 			break
 
@@ -45,13 +47,13 @@ func _on_inventory_on_item_button_clicked(resource_name: String) -> void:
 	if not current_item: return
 	if current_item == $Dust and item == $Brush:
 		$inventory.remove(resource_name)
-		#$inventory.add($Key.get_resource_name())
 		$Dust.hide()
 		$Key.show()
 		current_item = null
 	elif current_item == $Cofre and item == $Key:
 		$inventory.remove(resource_name)
 		$Cofre.hide()
+		$Glasses.show()
 		current_item = null
 	else:
 		$MsgBox.show_box("Eso no tiene el más mínimo sentido, ¡insensato!")

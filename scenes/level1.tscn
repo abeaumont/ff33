@@ -8,11 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bnusdvnqlh4qn" path="res://assets/objects/Colored/genericItem_color_022.png" id="6_ejswk"]
 [ext_resource type="Texture2D" uid="uid://c4aecd02x4moy" path="res://assets/objects/Colored/genericItem_color_101.png" id="7_bbk5w"]
 [ext_resource type="Script" uid="uid://bxq8j3wya4kda" path="res://scenes/item_msg_box.gd" id="8_bbk5w"]
-[ext_resource type="Texture2D" uid="uid://d336ggx8fel7c" path="res://assets/objects/Colored/genericItem_color_155.png" id="9_conm7"]
-[ext_resource type="Texture2D" uid="uid://o5uato0fsry4" path="res://assets/objects/Colored/genericItem_color_161.png" id="10_d3jkd"]
-[ext_resource type="Texture2D" uid="uid://cgbkqgqagnnn0" path="res://assets/objects/Colored/genericItem_color_011.png" id="11_u3awl"]
-[ext_resource type="Texture2D" uid="uid://bms7uax1laxe" path="res://assets/objects/Colored/genericItem_color_102.png" id="12_2ku1j"]
-[ext_resource type="Texture2D" uid="uid://bp0nste8p27yx" path="res://assets/objects/gafabegitxo.png" id="13_f31uk"]
+[ext_resource type="Texture2D" uid="uid://bkmsv8kqjalnm" path="res://assets/objects/Colored/genericItem_color_155.png" id="9_conm7"]
+[ext_resource type="Texture2D" uid="uid://ddx4irdwywmyl" path="res://assets/objects/Colored/genericItem_color_161.png" id="10_d3jkd"]
+[ext_resource type="Texture2D" uid="uid://dtoo1ct17uywy" path="res://assets/objects/Colored/genericItem_color_011.png" id="11_u3awl"]
+[ext_resource type="Texture2D" uid="uid://srquirjvfj1f" path="res://assets/objects/Colored/genericItem_color_102.png" id="12_2ku1j"]
+[ext_resource type="Texture2D" uid="uid://dvl3h1yd7r6pq" path="res://assets/objects/gafabegitxo.png" id="13_f31uk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbk5w"]
 font_size = 50
@@ -121,6 +121,8 @@ position = Vector2(87, 797)
 
 [node name="Glasses" parent="." instance=ExtResource("5_6sh32")]
 visible = false
+position = Vector2(0, 117)
+description = "¡Vaya! Justo lo que buscaba."
 
 [node name="Sprite2D" parent="Glasses" index="0"]
 position = Vector2(75, 790)
